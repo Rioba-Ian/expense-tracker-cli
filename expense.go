@@ -87,3 +87,16 @@ func (expenses *Expenses) update(index int, desc string, amount int) error {
 
 	return nil
 }
+
+func (expenses *Expenses) summary() {
+	e := *expenses
+
+	var total int
+
+	for _, val := range e {
+		total += val.Amount
+	}
+
+	fmt.Println("Total Expenses: $", total)
+
+}
