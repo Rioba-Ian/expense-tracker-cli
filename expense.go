@@ -46,8 +46,44 @@ func (expenses *Expenses) list() {
 	table.SetHeaders("#", "ID", "Date", "Description", "Amount")
 
 	for index, e := range *expenses {
-		table.AddRow("#", strconv.Itoa(index), e.CreatedAt.Format(time.RFC1123), e.Description, strconv.Itoa(e.Amount))
+		amount := "$" + strconv.Itoa(e.Amount)
+		table.AddRow("#", strconv.Itoa(index), e.CreatedAt.Format(time.RFC1123), e.Description, amount)
 	}
 
 	table.Render()
+}
+
+func (expenses *Expenses) delete(index int) error {
+	e := *expenses
+
+	if err := e.validateIndex(index); err != nil {
+		return err
+	}
+
+	*expenses = append(e[:index], e[index+1:]...)
+
+	return nil
+}
+
+func (expenses *Expenses) update(index int, desc string, amount int) error {
+	e := *expenses
+
+	if err := e.validateIndex(index); err != nil {
+		return err
+	}
+
+	if desc == "" {
+		err := errors.New("Description cannot be empty")
+		return err
+	}
+
+	if amount < 0 {
+		err := errors.New("Amount should be greater than 0")
+		return err
+	}
+
+	e[index].Description = desc
+	e[index].Amount = amount
+
+	return nil
 }

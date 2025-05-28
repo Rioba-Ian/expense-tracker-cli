@@ -8,4 +8,11 @@ func main() {
 
 	expenses.list()
 
+	expenses.delete(1)
+
+	expenses.list()
+
+	expenses.update(0, "New Lunch Desc", 15)
+
+	expenses.list()
 }
