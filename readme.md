@@ -1,5 +1,9 @@
 # Expense Tracker CLI
 
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Rioba-Ian/expense-tracker-cli/go.yml)
+
+![GitHub go.mod Go version (branch)](https://img.shields.io/github/go-mod/go-version/Rioba-Ian/expense-tracker-cli/main)
+
 Expense Tracker CLI is a command-line interface for managing expenses.
 It allows users to add, view, and delete expenses. It also provides a summary of expenses.
 
