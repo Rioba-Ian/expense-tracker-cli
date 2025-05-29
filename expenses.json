@@ -1,0 +1,12 @@
+[
+    {
+        "Description": "Lunch",
+        "Amount": 15,
+        "CreatedAt": "2025-05-27T16:48:56.517362+03:00"
+    },
+    {
+        "Description": "New Breakfast Desc",
+        "Amount": 10,
+        "CreatedAt": "2025-05-27T16:48:56.517362+03:00"
+    }
+]

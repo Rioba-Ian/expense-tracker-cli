@@ -2,11 +2,8 @@ package main
 
 func main() {
 	expenses := Expenses{}
-
-	expenses.add("Lunch", 20)
-	expenses.add("Dinner", 10)
-
-	expenses.summary()
+	storage := NewStorage[Expenses]("expenses.json")
+	storage.Load(&expenses)
 
 	expenses.list()
 
@@ -14,9 +11,11 @@ func main() {
 
 	expenses.list()
 
-	expenses.update(0, "New Lunch Desc", 15)
+	expenses.update(0, "Lunch", 15)
 
 	expenses.list()
 
 	expenses.summary()
+
+	storage.Save(expenses)
 }
