@@ -5,17 +5,20 @@ func main() {
 	storage := NewStorage[Expenses]("expenses.json")
 	storage.Load(&expenses)
 
+	posArg := NewCmdFlags()
+
+	posArg.Exec(&expenses)
 	expenses.list()
 
-	expenses.delete(1)
+	// expenses.delete(1)
 
-	expenses.list()
+	// expenses.list()
 
-	expenses.update(0, "Lunch", 15)
+	// expenses.update(0, "Lunch", 15)
 
-	expenses.list()
+	// expenses.list()
 
-	expenses.summary()
+	// expenses.summary()
 
 	storage.Save(expenses)
 }
