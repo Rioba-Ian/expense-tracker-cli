@@ -26,6 +26,10 @@ type DeleteCmdFlags struct {
 	Id int
 }
 
+type SummaryCmdFlags struct {
+	Month string
+}
+
 func NewCmdFlags() *PosArg {
 	firstArg := PosArg{}
 
@@ -50,7 +54,13 @@ func (arg *PosArg) Exec(expenses *Expenses) {
 	case firstArg.first == "delete":
 		NewDelCmdFlags().DeleteExec(expenses)
 	case firstArg.first == "summary":
-		expenses.summary()
+		secondSummaryArg := flag.Arg(1)
+		fmt.Println("length of second summary:", len(secondSummaryArg))
+		if len(secondSummaryArg) < 1 {
+			expenses.summary()
+		} else {
+			NewSummaryCmdFlags().SummaryExec(expenses)
+		}
 	case firstArg.first == "list":
 		expenses.list()
 	default:
@@ -101,4 +111,20 @@ func (del *DeleteCmdFlags) DeleteExec(expenses *Expenses) {
 	expenses.delete(del.Id)
 }
 
-/* Summary */
+/* Summary By Month */
+
+func NewSummaryCmdFlags() *SummaryCmdFlags {
+	summaryCfg := SummaryCmdFlags{}
+
+	summaryMonth := strings.Split(flag.Arg(1), "=")[1]
+
+	summaryCfg = SummaryCmdFlags{
+		Month: summaryMonth,
+	}
+
+	return &summaryCfg
+}
+
+func (summary *SummaryCmdFlags) SummaryExec(expenses *Expenses) {
+	expenses.summaryByMonth(summary.Month)
+}

@@ -25,19 +25,19 @@ It allows users to add, view, and delete expenses. It also provides a summary of
 ### CLI tool usage
 
 ```sh
-expense-tracker add --description "Lunch" --amount 10.00
+expense-tracker add --description="Lunch" --amount=10.00
 expense-tracker list
 # ID Date Description Amount
 # 1 2023-01-01 Lunch 10.00
 # 2 2023-01-02 Dinner 20.00
 expense-tracker summary
 # Total expenses: $10.00
-expense-tracker delete --id 1
+expense-tracker delete --id=1
 # Expense deleted successfully.
-expense-tracker summary --month 8
+expense-tracker summary --month="May"
 # Total expenses for August: $10.00
 
-expense-tracker update --id 2 --description "Dinner" --amount 25.00
+expense-tracker update --id 2 --description="Dinner" --amount=25.00
 expense-tracker list
 # ID Date Description Amount
 # 1 2023-01-01 Lunch 10.00

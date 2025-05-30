@@ -100,3 +100,17 @@ func (expenses *Expenses) summary() {
 	fmt.Println("Total Expenses: $", total)
 
 }
+
+func (expenses *Expenses) summaryByMonth(month string) {
+	e := *expenses
+	var totalMonth int
+
+	for _, value := range e {
+		monthValue := value.CreatedAt.Month()
+		if month == monthValue.String() {
+			totalMonth += value.Amount
+		}
+	}
+
+	fmt.Printf("Total expenses for %s: $%d\n", month, totalMonth)
+}
