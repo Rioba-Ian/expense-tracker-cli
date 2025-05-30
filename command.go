@@ -19,7 +19,7 @@ type AddCmdFlags struct {
 type UpdateCmdFlags struct {
 	Id          int
 	Description string
-	Amount      string
+	Amount      int
 }
 
 type DeleteCmdFlags struct {
@@ -61,12 +61,13 @@ func (arg *PosArg) Exec(expenses *Expenses) {
 		} else {
 			NewSummaryCmdFlags().SummaryExec(expenses)
 		}
+	case firstArg.first == "update":
+		NewUpdateCmdFlags().UpdateExec(expenses)
 	case firstArg.first == "list":
 		expenses.list()
 	default:
-		fmt.Println("Add not entered.")
+		fmt.Println("Invalid Command.")
 	}
-	fmt.Println("List commands")
 }
 
 /* Add commands */
@@ -127,4 +128,29 @@ func NewSummaryCmdFlags() *SummaryCmdFlags {
 
 func (summary *SummaryCmdFlags) SummaryExec(expenses *Expenses) {
 	expenses.summaryByMonth(summary.Month)
+}
+
+// Update Expense
+func NewUpdateCmdFlags() *UpdateCmdFlags {
+	updateCfg := UpdateCmdFlags{}
+
+	updateArgs := flag.Args()[1:]
+	fmt.Println("update args all>>", updateArgs)
+	id, desc, amount := strings.Split(updateArgs[0], "=")[1], strings.Split(updateArgs[1], "=")[1], strings.Split(updateArgs[2], "=")[1]
+	fmt.Printf("id: %s, desc: %s, amount: %s\n", id, desc, amount)
+
+	amountToInt, _ := strconv.Atoi(amount)
+	idToInt, _ := strconv.Atoi(id)
+
+	updateCfg = UpdateCmdFlags{
+		Id:          idToInt,
+		Description: desc,
+		Amount:      amountToInt,
+	}
+
+	return &updateCfg
+}
+
+func (update *UpdateCmdFlags) UpdateExec(expenses *Expenses) {
+	expenses.update(update.Id, update.Description, update.Amount)
 }

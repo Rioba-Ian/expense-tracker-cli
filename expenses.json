@@ -1,12 +1,12 @@
 [
     {
-        "Description": "Lunch",
-        "Amount": 15,
+        "Description": "Remove bloody minus",
+        "Amount": 0,
         "CreatedAt": "2025-05-27T16:48:56.517362+03:00"
     },
     {
-        "Description": "Late recovery",
-        "Amount": 32,
+        "Description": "My New Description",
+        "Amount": 35,
         "CreatedAt": "2025-05-29T13:16:13.195451+03:00"
     },
     {

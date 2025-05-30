@@ -18,9 +18,11 @@ It allows users to add, view, and delete expenses. It also provides a summary of
 
 ### Additional Features
 
+Some additional features we intend to add in the future
+
 1. Add expense categories and allow users to filter expenses by category.
 2. Allow users to set a budget for each month and show a warning when the user exceeds the budget.
-3. Allow users to export expenses to a CSV file.
+3. Allow users to export expenses to a CSV file.✅
 
 ### CLI tool usage
 

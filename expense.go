@@ -72,6 +72,8 @@ func (expenses *Expenses) update(index int, desc string, amount int) error {
 		return err
 	}
 
+	fmt.Println("The expense itself::", e[index])
+
 	if desc == "" {
 		err := errors.New("Description cannot be empty")
 		return err
