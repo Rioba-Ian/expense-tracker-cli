@@ -7,21 +7,34 @@
 Expense Tracker CLI is a command-line interface for managing expenses.
 It allows users to add, view, and delete expenses. It also provides a summary of expenses.
 
+## Installation
+
+In order to install the Expense Tracker CLI, you need to have Go installed on your system.
+You can download Go from [here](https://golang.org/dl/).
+
+Once you have Go installed, you can install the Expense Tracker CLI by running the following command:
+
+```sh
+go install github.com/Rioba-Ian/expense-tracker-cli@latest
+```
+
+Once you have installed the Expense Tracker CLI, you can run it by typing `expense-tracker` in your terminal.
+
 ## Features
 
-1. Users can add an expense with a description and amount.
-2. Users can view all expenses.
-3. Users can delete an expense by its ID.
-4. Users can update an expense.
-5. Users can view a summary of all expenses.
+1. Users can add an expense with a description and amount ✅.
+2. Users can view all expenses ✅.
+3. Users can delete an expense by its ID ✅.
+4. Users can update an expense ✅.
+5. Users can view a summary of all expenses ✅.
 6. Users can view a summary of expenses for a specific month (of current year).
 
 ### Additional Features
 
 Some additional features we intend to add in the future
 
-1. Add expense categories and allow users to filter expenses by category.
-2. Allow users to set a budget for each month and show a warning when the user exceeds the budget.
+1. Add expense categories and allow users to filter expenses by category ⏳.
+2. Allow users to set a budget for each month and show a warning when the user exceeds the budget ⏳.
 3. Allow users to export expenses to a CSV file.✅
 
 ### CLI tool usage
